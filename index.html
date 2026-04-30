@@ -3,71 +3,52 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PCDC VITA 免费报税协助申请 | PCDC VITA Application</title>
-        <style>
-            /* - Reset & Base - */
-            *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0;}
-            html { scroll-behavior: smooth; }
-            body {
-                font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-                background: #f0f4f8;
-                color: #1a202c;
-                font-size: 15px;
-                line-height: 1.6;
-                min-height: 100vh;
-            }
-
-            /* - colors - */
-            :root {
-                --navy: #1B3A6B;
-                --navy-light: #2a529a;
-                --navy-bg: #EAF1F8;
-                --navy-border: #b8d0e8;
-                --red: #c53030;
-                --red-bg: #fff5f5;
-                --red-border: #feb2b2;
-                --green: #276749;
-                --green-bg: #f0fff4;
-                --green-border: #9ae6b4;
-                --gray: #718096;
-                --gray-light: #e2e8f0;
-                --gray-bg: #f7fafc;
-                --text: #1a202c;
-                --text-muted: #718096;
-                --white: #ffffff;
-                --radius: 8px;
-                --radius-lg: 12px;
-                --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-                --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
-            }
-
-            /* - Header - */
-            .site-header {
-                background: var(--navy);
-                padding: 0 24px;
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            }
-            .header-inner {
-                max-width: 780px;
-                margin: 0 auto;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                height: 60px;
-            }
-            .logo-area { display: flex; align-items: center; gap: 12px; text-decoration:none; }
-            .logo-img { 
-                width: 40px; height: 40px;
-                background: rgba(255,255,255,0.15);
-                border-radius: 8px;
-                display: flex; align-items: center; justify-content: center;
-                font-size: 11px; font-weight: 700; color: #fff; text-align: center; line-height: 1.2;
-                letter-spacing: 0.02em;
-            }
-            .logo-text-wrap { color: #fff; }
-        </style>
+        <title>PCDC VITA 免费报税协助申请 | VITA Free Tax Filling Application</title>
+        <link rel="stylesheet" href="style.css">
     </head>
+
+    <body>
+        <!--Header-->
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="logo-area">
+                    <div class="log-img">PCDC</div>
+                    <div class="logo-text-wrap">
+                        <div class="logo-title" data-zh="VITA 免费报税" data-en="VITA Free Tax Filling"> </div>
+                        <div class="log-sub" data-zh="费城华埠发展会" data-en="Philadelphia Chinatown Development Corporation">费城华埠发展会</div>
+                    </div>
+                </div>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">中文</button>
+                    <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Progress -->
+        <div class="progress-wrap">
+            <div class="progress-inner">
+                <div class="steps-row" id="steps-row"></div>
+            </div>
+        </div>
+
+        <!-- Main -->
+         <div class="main">
+            <!-- STEP 1: Eligibility -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-step" data-zh="第一步 · 资格筛查" data-en="Step 1 · Eligibility Screening">第一步 · 资格筛查</div>
+                    <div class="card-title" data-zh="您是否符合服务资格？" data-en="Are you eligible for our service?">您是否符合服务资格？</div>
+                    <div class="card-sub" data-zh="请如实回答以下问题。任何一项不符合，我们将说明原因并提供联系方式。" 
+                    data-en="Please answer the questions below. If any condition is not met, we will explain why and provide contact information.">
+                    请如实回答以下问题。任何一项不符合，我们将说明原因并提供联系方式。</div>
+                </div>
+            <div class="card-body">
+                <div class="notice" data-zh="填写此表并不保证一定可以获得服务。我们将根据您所提供的信息进行资格审核，如符合条件，我们的团队将与您联系并告知后续步骤。" 
+                        data-en="Completing this form does not guarantee service. Eligibility will be reviewed based on the information you provide, and our team will contact you with next steps if applicable.">
+                        填写此表并不保证一定可以获得服务。我们将根据您所提供的信息进行资格审核，如符合条件，我们的团队将与您联系并告知后续步骤。</div>
+                </div>
+            </div>
+         </div>
+    </body>
 </html>
