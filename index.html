@@ -235,7 +235,73 @@
                 </div>
             </div>
          </div>
+        
+         <!-- Step 2: Consent-->
+          <div class="screen" id="screen-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-step" data-zh="第二步 · IRS 授权同意书" data-en="Step 2 · IRS Authorization Consent Form">第二步 · IRS 授权同意书</div>
+                    <div class="card-title" data-zh="请签署 IRS 14446 表格" data-en="Please Sign IRS Form 14446">请签署 IRS 14446 表格</div>
+                    <div class="card-sub" data-zh="在继续填写前，请通过下方链接签署同意书。签署后返回此页面继续。" data-en="Before continuing, please sign the consent form using the link below. Return to this page after signing.">在继续填写前，请通过下方链接签署同意书。签署后返回此页面继续。</div>
+                </div>
+                <div class="card-body">
+                    <div class="notice warning" data-zh="如不同意签署，您将无法获得报税服务。签署后请勾选下方「已签名」" data-en="If you do not agree to sign, you will not be able to receive tax filling services. After signing, please check 'Signed' below.">如不同意签署，您将无法获得报稅服务。签署后请勾选下方「已签名」。</div>
+                    <div class="form-section-title" data-zh="主报税人" data-en="Primary Taxpayer">主报税人</div>
+                    <a href="https://bit.ly/F14446ChineseTP" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                        <span data-zh="点击此处签署主报税人同意书" data-en="Click here to sign Primary Taxpayer consent form">点击此处签署主报税人同意书</span>
+                    </a>
+                    <div class="field" style="margin-bottom: 20px;">
+                        <div class="field-label" data-zh="主报税人签署状态" data-en="Primary Signing Status">主报税人签署状态<span class="req">*</span></div>
+                        <div class="radio-cards" id="q-consent-tp">
+                            <div class="radio-card" data-val="Signed" onclick="selectRadio('q-consent-tp','signed',false)">
+                                <div class="radio-indicator"></div>
+                                <div class="radio-text"><strong data-zh="已签名" data-en="Signed">已签名</strong></div>
+                            </div>
+                            <div class="radio-card" data-val="unsigned" onclick="selectRadio('q-consent-tp','unsigned',false)">
+                                <div class="radio-indicator"></div>
+                                <div class="radio-text"><strong data-zh="未签名" data-en="Not Signed">未签名</strong></div>
+                            </div>
+                            <div class="radio-card" data-val="na" onclick="selectRadio('q-consent-tp','na',false)">
+                                <div class="radio-indicator"></div>
+                                <div class="radio-text"><strong data-zh="不适用" data-en="N/A">不适用</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section-title" data-zh="配偶" data-en="Spouse">配偶</div>
+                    <a href="https://bit.ly/F144446ChineseSpouse" class="consent-link" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <span data-zh="点击此处签署配偶同意书" data-en="Click here to sign Spouse consent form">点击此处签署配偶同意书</span>
+                    </a>
+                    <div class="field" style="margin-bottom: 0;">
+                        <div class="field-label" data-zh="配偶签署状态" data-en="Spouse Signing Status">配偶签署状态<span class="req">*</span></div>
+                        <div class="radio-cards" id="q-consent-sp">
+                            <div class="radio-card" data-val="signed" onclick="selectRadio('q-consent-sp','signed',false)">
+                                <div class="radio-indicator"></div>
+                                <div class="radio-text"><strong data-zh="已签名" data-en="Signed">已签名</strong></div>
+                            </div>
+                            <div class="radio-card" data-val="unsigned" onclick="selectRadio('q-consent-sp','unsigned',false)">
+                                <div class="radio-indicator"></div>
+                                <div class="radio-text"><strong data-zh="未签名" data-en="Not Signed">未签名</strong></div>
+                            </div>
+                            <div class="radio-card" data-val="na" onclick="selectRadio('q-consent-sp','na',false)">
+                                <div class="radio-indicator"></div>
+                                <div class="radio-text"><strong data-zh="不适用" data-en="N/A">不适用</strong></div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="form-nav">
+                        <div class="nav-progress" data-zh="第 2 步，共 10 步" data-en="Step 2 of 10">第 2 步，共 10 步</div>
+                        <div class="nav-btns">
+                            <button class="btn btn-secondary" onclick="prevStep(2)" data-zh="← 返回" data-en="← Back">← 返回</button>
+                            <button class="btn btn-primary" onclick="nextStep(2)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+          </div>
          
+          
     </body>
 </html>
