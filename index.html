@@ -302,6 +302,110 @@
             </div> 
           </div>
          
-          
+        <!-- Step 3 : Demographics -->>
+        <div class="screen" id="screen-3">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-step" data-zh="第三步 · 人口统计" data-en="Step 3 · Demographic information">第三步 · 人口统计</div>
+                    <div class="card-title" data-zh="基本人口统计信息" data-en="Basic Demographic Information">基本人口统计信息</div>
+                    <div class="card-sub" data-zh="此信息仅用于统计，不影响服务资格。" data-en="This information is used for statistical purpose only and does not affect eligiblility.">此信息仅用于统计，不影响服务资格。</div>
+                </div>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="field">
+                            <div field-label data-zh="性别" data-en="Gender">性别</div>
+                            <select id="f-gender">
+                                <option value="" data-zh="请选择" data-en="Gender">请选择</option>
+                                <option value="Male" data-zh="男" data-en="Male">男</option>
+                                <option value="Female" data-zh="女" data-en="Female">女</option>
+                                <option value="Prefer not to answer" data-zh="不想回答" data-en="Prefer not to answer">不想回答</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="field-label" data-zh="种族" data-en="Race">种族</div>
+                            <select id="f-ethinicity">
+                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+                                <option value="Asian" data-zh="亚洲人" data-en="Asian">亚洲人</option>
+                                <option value="Black or African American" data-zh="黑人或非裔美国人" data-en="Black or African American">黑人或非裔美国人</option>
+                                <option value="White" data-zh="白人" data-en="White">白人</option>
+                                <option value="Native Havaiian or other Pacific Islander" data-zh="夏威夷原住民或其他太平洋岛民" data-en="Native Havaiian or other Pacific Islander">夏威夷原住民或其他太平洋岛民</option>
+                                <option value="American Indian or Alaska Native" data-zh="美洲印第安人或阿拉斯加原住民" data-en="American Indian or Alaska Native">美洲印第安人或阿拉斯加原住民</option>
+                                <option value="Prefer not to answer" data-zh="不想回答" data-en="Prefer not to answer">不想回答</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="field-label" data-zh="英语水平" data-en="English Proficiency">英语水平<span class="req">*</span></div>
+                            <select id="f-english" required>
+                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+                                <option value="Proficient" data-zh="熟练" data-en="Proficient">熟练</option>
+                                <option value="Not proficient" data-zh="不熟练" data-en="Not proficient">不熟练</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="field-label" data-zh="残障状况" data-en="Disability Status">残障状况</div>
+                            <select id="f-disability">
+                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+                                <option value="Disabled" data-zh="残障人士" data-en="Disability">残障人士</option>
+                                <option value="Not disability" data-zh="非残障人士" data-en="Not disability">非残障人士</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="field-label" data-zh="婚姻状况" data-en="Marital Status">婚姻状况<span class="req">*</span></div>
+                            <select id="f-marital" required>
+                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+                                <option value="Single" data-zh="单身" data-en="Single">单身</option>
+                                <option value="Married" data-zh="已婚" data-en="Married">已婚</option>
+                                <option value="Separated" data-zh="分居" data-en="Separated">分居</option>
+                                <option value="Divorced" data-zh="离婚" data-en="Divorced">离婚</option>
+                                <option value="Widow(er)" data-zh="寡妇或鳏夫" data-en="Widow(er)">寡妇或鳏夫</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="field-label" data-zh="房屋状况" data-en="Housing Status">房屋状况</div>
+                            <select id="f-housing">
+                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+                                <option value="Rent" data-zh="租客" data-en="Rent">租客</option>
+                                <option value="Own" data-zh="房主" data-en="Own">房主</option>
+                                <option value="Living with others" data-zh="与他人同住" data-en="Living with others">与他人同住</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="field-label" data-zh="受教育程度" data-en="Education Level">受教育程度</div>
+                            <select id="f-education">
+                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+                                <option value="college or above" data-zh="大专及以上" data-en="College or above">大专及以上</option>
+                                <option value="High School" data-zh="中学" data-en="High School">中学</option>
+                                <option value="Middle School" data-zh="初中" data-en="Middle School">中学</option>
+                                <option value="Elementary School" data-zh="小学" data-en="Elementary School">小学</option>
+                                <option value="No formal education" data-zh="没有正规教育" data-en="No formal education">没有正规教育</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="field-label" data-zh="您是怎么知道我们的服务的？" data-en="How did you hear about our services?">您是怎么知道我们的服务的？</div>
+                            <select id="id-referral">
+                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+                                <option value="IRS" data-zh="国税局" data-en="IRS">国税局</option>
+                                <option value="PCDC Marketing" data-zh="PCDC 营销" data-en="PCDC Marketing">PCDC 营销</option>
+                                <option value="Friends or family" data-zh="朋友或家人" data-en="Friends or family">朋友或家人</option>
+                                <option value="Returning client" data-zh="回头客" data-en="Returning client">回头客</option>
+                                <option value="CWF" data-zh="工薪家庭协会(CWF)" data-en="Campaign for Working Familys(CWF)"></option>
+                                <option value="KITHS" data-zh="KITHS" data-en="KITHS">KITHS</option>
+                                <option value="Other" data-zh="其他" data-en="Other">其他</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-nav">
+                        <div class="nav-progress" data-zh="第 3 步， 共 10 步" data-en="Step 3 of 10">第 3 步， 共 10 步</div>
+                        <div class="nav-btns">
+                            <button class="btn btn-secondary" onclick="prevStep(3)" data-zh="← 返回" data-en="← Back">← 返回</button>
+                            <button class="btn btn-primary" onclick="nextStep(3)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
     </body>
 </html>
