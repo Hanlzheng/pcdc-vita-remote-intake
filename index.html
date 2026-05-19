@@ -1,411 +1,878 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PCDC VITA 免费报税协助申请 | VITA Free Tax Filling Application</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCDC VITA 免费报税申请 | VITA Free Tax Filing Application</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <body>
-        <!--Header-->
-        <header class="site-header">
-            <div class="header-inner">
-                <div class="logo-area">
-                    <div class="log-img">PCDC</div>
-                    <div class="logo-text-wrap">
-                        <div class="logo-title" data-zh="VITA 免费报税" data-en="VITA Free Tax Filling"> </div>
-                        <div class="log-sub" data-zh="费城华埠发展会" data-en="Philadelphia Chinatown Development Corporation">费城华埠发展会</div>
-                    </div>
-                </div>
-                <div class="lang-toggle">
-                    <button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">中文</button>
-                    <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
-                </div>
-            </div>
-        </header>
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-img">PCDC</div>
+      <div class="logo-text-wrap">
+        <div class="logo-title" data-zh="VITA 免费报税" data-en="VITA Free Tax Filing">VITA 免费报税</div>
+        <div class="logo-sub" data-zh="费城华埠发展会" data-en="Philadelphia Chinatown Development Corporation">费城华埠发展会</div>
+      </div>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('zh')" id="btn-zh">中文</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">English</button>
+    </div>
+  </div>
+</header>
 
-        <!-- Progress -->
-        <div class="progress-wrap">
-            <div class="progress-inner">
-                <div class="steps-row" id="steps-row"></div>
-            </div>
-        </div>
+<!-- ── Progress ── -->
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="steps-row" id="steps-row"></div>
+  </div>
+</div>
 
-        <!-- Main -->
-         <div class="main">
-            <!-- STEP 1: Eligibility -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-step" data-zh="第一步 · 资格筛查" data-en="Step 1 · Eligibility Screening">第一步 · 资格筛查</div>
-                    <div class="card-title" data-zh="您是否符合服务资格？" data-en="Are you eligible for our service?">您是否符合服务资格？</div>
-                    <div class="card-sub" data-zh="请如实回答以下问题。任何一项不符合，我们将说明原因并提供联系方式。" 
-                    data-en="Please answer the questions below. If any condition is not met, we will explain why and provide contact information.">
-                    请如实回答以下问题。任何一项不符合，我们将说明原因并提供联系方式。</div>
-                </div>
-            <div class="card-body">
-                <div class="notice" data-zh="填写此表并不保证一定可以获得服务。我们将根据您所提供的信息进行资格审核，如符合条件，我们的团队将与您联系并告知后续步骤。" 
-                        data-en="Completing this form does not guarantee service. Eligibility will be reviewed based on the information you provide, and our team will contact you with next steps if applicable.">
-                        填写此表并不保证一定可以获得服务。我们将根据您所提供的信息进行资格审核，如符合条件，我们的团队将与您联系并告知后续步骤。</div>
+<!-- ── Main ── -->
+<div class="main">
 
-                <!-- Q1: Residency-->
-                 <div class="field full" style="margin-bottom:16px;">
-                    <div class="field-label">
-                        <span data-zh="您2025年有超过半年的时间住在美国吗？" data-en="Did you live in the United States for more than half of 2025?">
-                            您2025年有超过半年的时间住在美国吗？
-                        </span>
-                        <span class="req">*</span>
-                        <span class="sub" data-zh="如是的话，请选择「居民」" data-en="If yes, please select 'Resident'">如是的话，请选择「居民」</span>
-                    </div>
-                    <div class="radio-cards" id="q-residency">
-                        <div class="radio-card" data-val="resident" onclick="selectRadio('q-residency','resident',false)">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text">
-                                <strong data-zh="居民 Resident" data-en="Resident 居民">居民 Resident</strong>
-                            </div>
-                        </div>
-                        <div class="radio-card danger-card" data-val="nonresident" onclick="selectRadio('q-residency','nonresident','true','我们目前不提供非居民报税服务。\nWe currently do not provide tax services for non-residents.')">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text">
-                                <strong data-zh="非居民 Nonresident" data-en="Nonresident 非居民">非居民 Nonresident</strong>
-                            </div>
-                            <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
-                        </div>
-                        <div class="radio-card" data-val="unsure" onclick="selectRadio('q-residency','unsure',false)">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text">
-                                <strong data-zh="需要协助判断 I need assistance to determine this" data-en="I need assistance to determine this 需要协助判断">需要协助判断 I need assistance to determine this</strong>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
+  <!-- ════ STEP 1: Eligibility ════ -->
+  <div class="screen active" id="screen-1">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第一步 · 资格筛查" data-en="Step 1 · Eligibility Screening">第一步 · 资格筛查</div>
+        <div class="card-title" data-zh="您是否符合服务资格？" data-en="Are you eligible for our service?">您是否符合服务资格？</div>
+        <div class="card-sub" data-zh="请如实回答以下问题。任何一项不符合，我们将说明原因并提供联系方式。" data-en="Please answer the questions below. If any condition is not met, we will explain why and provide contact information.">请如实回答以下问题。任何一项不符合，我们将说明原因并提供联系方式。</div>
+      </div>
+      <div class="card-body">
+        <div class="notice" data-zh="填写此表并不保证一定可以获得服务。我们将根据您所提供的信息进行资格审核，如符合条件，我们的团队将与您联系并告知后续步骤。" data-en="Completing this form does not guarantee service. Eligibility will be reviewed based on the information you provide, and our team will contact you with next steps if applicable.">填写此表并不保证一定可以获得服务。我们将根据您所提供的信息进行资格审核，如符合条件，我们的团队将与您联系并告知后续步骤。</div>
 
-                 <!-- Q2: Live outside PA/NJ/DE -->
-                  <div class="field full" style="margin-bottom:16px;">
-                    <div class="field-label">
-                        <span data-zh="您住在宾州、新泽西或特拉华之外的州吗？" data-en="Do you live outside of PA, NJ, or DE?">您住在宾州、新泽西或特拉华之外的州吗？</span>
-                        <span class="req">*</span>
-                    </div>
-                    <div class="readio-cards" id="q-live-outside">
-                        <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-live-outside','yes',true,'我们目前只服务PA, NJ, DE的居民。\nWe currently only serve residents of PA, NY, and DE')">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-                            <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
-                        </div>
-                        <div class="radio-card" data-val="no" onclick="selectRadio('q-live-outside','no',false)">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
-                        </div>
-                    </div>
-                  </div>
-
-                 <!-- Q3: Income from outside PA/NJ/DE -->
-                  <div class="field full" style="margin-bottom:16px;">
-                    <div class="field-label">
-                        <span data-zh="您有宾州、新泽西或特拉华之外的州的收入吗？" data-en="Do you have income from states other than PA, NJ, or DE?">您有宾州、新泽西或特拉华之外的州的收入吗？</span>
-                        <span class="req">*</span>
-                    </div>
-                    <div class="radio-cards" id="q-income-outside">
-                        <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-income-outside','yes',true,'我们目前不处理其他州的州税申报。\nWe currently do not handle tax returns for other states.')">
-                            <div class="radio=indicator"></div>
-                            <div class="radio-tet"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-                            <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
-                        </div>
-                        <div class="radio-card" data-val="no" onclick="selectRadio('q-income-outside','no','false')">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
-                        </div>
-                    </div>
-                  </div>
-
-                 <!-- Q4: Business income -->
-                  <div class="field full" style="margin: bottom 16px;">
-                    <div class="field-lable">
-                        <span data-zh="您2025年有做生意收入吗？" data-en="Do you have bussiness income in 2025?">您2025年有做生意收入吗？</span>
-                        <span class="req">*</span>
-                        <span class="sub" data-zh="不包括Uber/Lyft、餐馆员工等" data-en="Encluses Uber/Lyft drivers, restaurant employees, etc.">不包括 Uber/Lyft、餐馆员工等</span>
-                    </div>
-                    <div class="radio-cards" id="q-business">
-                        <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-business','yes',true,'商业收入超出我们的服务范围。\nBusiness income is outside our service scope.')">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-                            <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
-                        </div>
-                        <div class="radio-card" data-val="no" onclick="selectRadio('q-business','no',false)">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
-                        </div>
-                    </div>
-                  </div>
-
-                 <!-- Q5: Rental income -->
-                  <div class="field full" style="margin-bottom: 16px;">
-                    <div class="field-label">
-                        <span data-zh="您2025年有租金收入吗？" data-en="Do you have rental income in 2025?">您2025年有租金收入吗？</span>
-                        <span class="req">*</span>
-                    </div>
-                    <div class="radio-cards" id="q-rental">
-                        <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-rental','yes',true,'租金收入超出我们的服务范围。\nRental income is outside our service scope.')">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-                            <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
-                        </div>
-                        <div class="radio-card" data-val="no" onclick="selectRadio('q-rental','no',false)">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
-                        </div>
-                    </div>
-                  </div>
-
-                 <!-- Q6: Crypto -->
-                 <div class="field full" style="margin-bottom:16px;">
-                    <div class="field-label">
-                        <span data-zh="您2025年有加密货币交易吗？" data-en="Do you have cryptocurrency transactions in 2025? ">您2025年有加密货币交易？</span>
-                        <span class="req">*</span>
-                    </div>
-                    <div class="radio-cards" id="q-crypto">
-                        <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-crypto','yes',true,'加密货币交易超出我们的服务范围。\nCryptocurrency transactions are outside our service scope.')">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-                            <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
-                        </div>
-                        <div class="radio-card" data-val="no" onclick="selectRadio('q-crypto','no',false)">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
-                        </div>
-                    </div>
-                 </div>
-
-                 <!-- Q7: Stocks -->
-                <div class="field full" style="margin-bottom: 16px;">
-                    <div class="field-label">
-                        <span data-zh="您2025年有超过10次股票交易吗？" data-en="Do you have more than 10 stock transactions in 2025?">您2025年有超过10次股票交易吗？</span>
-                        <span class="req">*</span>
-                    </div>
-                    <div class="radio-cards" id="q-stocks">
-                        <div class="redio-card danger-card" data-val="yes" onclick="selectRadio('q-stocks','yes',true,'超过10次股票交易超出我们的服务范围。\nMore than 10 stock transactions is outside our service scope.')">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-                            <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
-                        </div>
-                        <div class="radio-card" data-val="no" onclick="selectRadio('q-stocks','no',false)">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Q8: Income Limit -->
-                 <div class="field full" style="margin-bottom: 16px;">
-                    <div class="field-label">
-                        <span data-zh="您2025年的总家庭收入超过￥69,000 吗？" data-en="Does your total household imcome exceed $69,000 in 2025?">您2025年的总家庭收入超过￥69,000吗?</span>
-                        <span class="req">*</span>
-                    </div>
-                    <div class="radio-cards" id="q-income">
-                        <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-income','yes',true,'您的家庭收入超过VITA服务上限￥69,000。\nYour household income exceeds the VITA service limit of $69,000')">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-                            <div class="Radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
-                        </div>
-                        <div class="radio-card" data-val="no" onclick="selectRadio('q-income','no',false)">
-                            <div class="radio-indicator"></div>
-                            <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
-                        </div>
-                    </div>
-                 </div>
-
-                 <!-- Ineligible box -->
-                  <div class="ineligible-box" id="ineligible-box">
-                    <div class="ineligible-icon">⚠️</div>
-                    <div class="ineligible-title" data-zh="很抱歉，您可能不符合我们的服务资格" data-en="we're sorry, you may not be eligible for our service">很抱歉，您可能不符合我们的服务资格</div>
-                    <div class="ineligible-reason" id="ineligible-reason"></div>
-                    <div class="ineligible-contact">
-                        <strong data-zh="如有疑问或特殊情况，请联系我们的办公室：" data-en="If you have question or special circumstances, please contact our office">如有疑问或特殊情况，请联系我们的办公室：</strong>
-                        📞 (215) 922-6156<br>
-                        ✉️ vita@chinatown-pcdc.org
-                    </div>
-                  </div>
-
-                  <div class="form-nav">
-                    <div class="nav-progress" data-zh="第 1 步， 共 10 步" data-en="Step 1 of 10">第 1 步， 共 10 步</div>
-                    <div class="nav-btns">
-                        <button class="btn btn-primary" onclick="nextStep(1)" id="btn-next-1" data-zh="下一步 →" data-en="Next →">下一步 →</button>
-                    </div>
-                  </div>
-                </div>
-            </div>
-         </div>
-        
-         <!-- Step 2: Consent-->
-          <div class="screen" id="screen-2">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-step" data-zh="第二步 · IRS 授权同意书" data-en="Step 2 · IRS Authorization Consent Form">第二步 · IRS 授权同意书</div>
-                    <div class="card-title" data-zh="请签署 IRS 14446 表格" data-en="Please Sign IRS Form 14446">请签署 IRS 14446 表格</div>
-                    <div class="card-sub" data-zh="在继续填写前，请通过下方链接签署同意书。签署后返回此页面继续。" data-en="Before continuing, please sign the consent form using the link below. Return to this page after signing.">在继续填写前，请通过下方链接签署同意书。签署后返回此页面继续。</div>
-                </div>
-                <div class="card-body">
-                    <div class="notice warning" data-zh="如不同意签署，您将无法获得报税服务。签署后请勾选下方「已签名」" data-en="If you do not agree to sign, you will not be able to receive tax filling services. After signing, please check 'Signed' below.">如不同意签署，您将无法获得报稅服务。签署后请勾选下方「已签名」。</div>
-                    <div class="form-section-title" data-zh="主报税人" data-en="Primary Taxpayer">主报税人</div>
-                    <a href="https://bit.ly/F14446ChineseTP" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
-                        <span data-zh="点击此处签署主报税人同意书" data-en="Click here to sign Primary Taxpayer consent form">点击此处签署主报税人同意书</span>
-                    </a>
-                    <div class="field" style="margin-bottom: 20px;">
-                        <div class="field-label" data-zh="主报税人签署状态" data-en="Primary Signing Status">主报税人签署状态<span class="req">*</span></div>
-                        <div class="radio-cards" id="q-consent-tp">
-                            <div class="radio-card" data-val="Signed" onclick="selectRadio('q-consent-tp','signed',false)">
-                                <div class="radio-indicator"></div>
-                                <div class="radio-text"><strong data-zh="已签名" data-en="Signed">已签名</strong></div>
-                            </div>
-                            <div class="radio-card" data-val="unsigned" onclick="selectRadio('q-consent-tp','unsigned',false)">
-                                <div class="radio-indicator"></div>
-                                <div class="radio-text"><strong data-zh="未签名" data-en="Not Signed">未签名</strong></div>
-                            </div>
-                            <div class="radio-card" data-val="na" onclick="selectRadio('q-consent-tp','na',false)">
-                                <div class="radio-indicator"></div>
-                                <div class="radio-text"><strong data-zh="不适用" data-en="N/A">不适用</strong></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-section-title" data-zh="配偶" data-en="Spouse">配偶</div>
-                    <a href="https://bit.ly/F144446ChineseSpouse" class="consent-link" target="_blank">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        <span data-zh="点击此处签署配偶同意书" data-en="Click here to sign Spouse consent form">点击此处签署配偶同意书</span>
-                    </a>
-                    <div class="field" style="margin-bottom: 0;">
-                        <div class="field-label" data-zh="配偶签署状态" data-en="Spouse Signing Status">配偶签署状态<span class="req">*</span></div>
-                        <div class="radio-cards" id="q-consent-sp">
-                            <div class="radio-card" data-val="signed" onclick="selectRadio('q-consent-sp','signed',false)">
-                                <div class="radio-indicator"></div>
-                                <div class="radio-text"><strong data-zh="已签名" data-en="Signed">已签名</strong></div>
-                            </div>
-                            <div class="radio-card" data-val="unsigned" onclick="selectRadio('q-consent-sp','unsigned',false)">
-                                <div class="radio-indicator"></div>
-                                <div class="radio-text"><strong data-zh="未签名" data-en="Not Signed">未签名</strong></div>
-                            </div>
-                            <div class="radio-card" data-val="na" onclick="selectRadio('q-consent-sp','na',false)">
-                                <div class="radio-indicator"></div>
-                                <div class="radio-text"><strong data-zh="不适用" data-en="N/A">不适用</strong></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-nav">
-                        <div class="nav-progress" data-zh="第 2 步，共 10 步" data-en="Step 2 of 10">第 2 步，共 10 步</div>
-                        <div class="nav-btns">
-                            <button class="btn btn-secondary" onclick="prevStep(2)" data-zh="← 返回" data-en="← Back">← 返回</button>
-                            <button class="btn btn-primary" onclick="nextStep(2)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+        <!-- Q1: Residency -->
+        <div class="field full" style="margin-bottom:16px;">
+          <div class="field-label">
+            <span data-zh="您2025年有超过半年的时间住在美国吗？" data-en="Did you live in the United States for more than half of 2025?">您2025年有超过半年的时间住在美国吗？</span>
+            <span class="req">*</span>
+            <span class="sub" data-zh="如是的话，请选择「居民」" data-en="If yes, please select 'Resident'">如是的话，请选择「居民」</span>
           </div>
-         
-        <!-- Step 3 : Demographics -->>
-        <div class="screen" id="screen-3">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-step" data-zh="第三步 · 人口统计" data-en="Step 3 · Demographic information">第三步 · 人口统计</div>
-                    <div class="card-title" data-zh="基本人口统计信息" data-en="Basic Demographic Information">基本人口统计信息</div>
-                    <div class="card-sub" data-zh="此信息仅用于统计，不影响服务资格。" data-en="This information is used for statistical purpose only and does not affect eligiblility.">此信息仅用于统计，不影响服务资格。</div>
-                </div>
-                <div class="card-body">
-                    <div class="form-grid">
-                        <div class="field">
-                            <div field-label data-zh="性别" data-en="Gender">性别</div>
-                            <select id="f-gender">
-                                <option value="" data-zh="请选择" data-en="Gender">请选择</option>
-                                <option value="Male" data-zh="男" data-en="Male">男</option>
-                                <option value="Female" data-zh="女" data-en="Female">女</option>
-                                <option value="Prefer not to answer" data-zh="不想回答" data-en="Prefer not to answer">不想回答</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <div class="field-label" data-zh="种族" data-en="Race">种族</div>
-                            <select id="f-ethinicity">
-                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
-                                <option value="Asian" data-zh="亚洲人" data-en="Asian">亚洲人</option>
-                                <option value="Black or African American" data-zh="黑人或非裔美国人" data-en="Black or African American">黑人或非裔美国人</option>
-                                <option value="White" data-zh="白人" data-en="White">白人</option>
-                                <option value="Native Havaiian or other Pacific Islander" data-zh="夏威夷原住民或其他太平洋岛民" data-en="Native Havaiian or other Pacific Islander">夏威夷原住民或其他太平洋岛民</option>
-                                <option value="American Indian or Alaska Native" data-zh="美洲印第安人或阿拉斯加原住民" data-en="American Indian or Alaska Native">美洲印第安人或阿拉斯加原住民</option>
-                                <option value="Prefer not to answer" data-zh="不想回答" data-en="Prefer not to answer">不想回答</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <div class="field-label" data-zh="英语水平" data-en="English Proficiency">英语水平<span class="req">*</span></div>
-                            <select id="f-english" required>
-                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
-                                <option value="Proficient" data-zh="熟练" data-en="Proficient">熟练</option>
-                                <option value="Not proficient" data-zh="不熟练" data-en="Not proficient">不熟练</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <div class="field-label" data-zh="残障状况" data-en="Disability Status">残障状况</div>
-                            <select id="f-disability">
-                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
-                                <option value="Disabled" data-zh="残障人士" data-en="Disability">残障人士</option>
-                                <option value="Not disability" data-zh="非残障人士" data-en="Not disability">非残障人士</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <div class="field-label" data-zh="婚姻状况" data-en="Marital Status">婚姻状况<span class="req">*</span></div>
-                            <select id="f-marital" required>
-                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
-                                <option value="Single" data-zh="单身" data-en="Single">单身</option>
-                                <option value="Married" data-zh="已婚" data-en="Married">已婚</option>
-                                <option value="Separated" data-zh="分居" data-en="Separated">分居</option>
-                                <option value="Divorced" data-zh="离婚" data-en="Divorced">离婚</option>
-                                <option value="Widow(er)" data-zh="寡妇或鳏夫" data-en="Widow(er)">寡妇或鳏夫</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <div class="field-label" data-zh="房屋状况" data-en="Housing Status">房屋状况</div>
-                            <select id="f-housing">
-                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
-                                <option value="Rent" data-zh="租客" data-en="Rent">租客</option>
-                                <option value="Own" data-zh="房主" data-en="Own">房主</option>
-                                <option value="Living with others" data-zh="与他人同住" data-en="Living with others">与他人同住</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <div class="field-label" data-zh="受教育程度" data-en="Education Level">受教育程度</div>
-                            <select id="f-education">
-                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
-                                <option value="college or above" data-zh="大专及以上" data-en="College or above">大专及以上</option>
-                                <option value="High School" data-zh="中学" data-en="High School">中学</option>
-                                <option value="Middle School" data-zh="初中" data-en="Middle School">中学</option>
-                                <option value="Elementary School" data-zh="小学" data-en="Elementary School">小学</option>
-                                <option value="No formal education" data-zh="没有正规教育" data-en="No formal education">没有正规教育</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <div class="field-label" data-zh="您是怎么知道我们的服务的？" data-en="How did you hear about our services?">您是怎么知道我们的服务的？</div>
-                            <select id="id-referral">
-                                <option value="" data-zh="请选择" data-en="Please select">请选择</option>
-                                <option value="IRS" data-zh="国税局" data-en="IRS">国税局</option>
-                                <option value="PCDC Marketing" data-zh="PCDC 营销" data-en="PCDC Marketing">PCDC 营销</option>
-                                <option value="Friends or family" data-zh="朋友或家人" data-en="Friends or family">朋友或家人</option>
-                                <option value="Returning client" data-zh="回头客" data-en="Returning client">回头客</option>
-                                <option value="CWF" data-zh="工薪家庭协会(CWF)" data-en="Campaign for Working Familys(CWF)"></option>
-                                <option value="KITHS" data-zh="KITHS" data-en="KITHS">KITHS</option>
-                                <option value="Other" data-zh="其他" data-en="Other">其他</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-nav">
-                        <div class="nav-progress" data-zh="第 3 步， 共 10 步" data-en="Step 3 of 10">第 3 步， 共 10 步</div>
-                        <div class="nav-btns">
-                            <button class="btn btn-secondary" onclick="prevStep(3)" data-zh="← 返回" data-en="← Back">← 返回</button>
-                            <button class="btn btn-primary" onclick="nextStep(3)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
-                        </div>
-                    </div>
-                </div>
+          <div class="radio-cards" id="q-residency">
+            <div class="radio-card" data-val="resident" onclick="selectRadio('q-residency','resident',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text">
+                <strong data-zh="居民 Resident" data-en="Resident 居民">居民 Resident</strong>
+              </div>
             </div>
+            <div class="radio-card danger-card" data-val="nonresident" onclick="selectRadio('q-residency','nonresident',true,'我们目前不提供非居民报税服务。\nWe currently do not provide tax services for non-residents.')">
+              <div class="radio-indicator"></div>
+              <div class="radio-text">
+                <strong data-zh="非居民 Nonresident" data-en="Nonresident 非居民">非居民 Nonresident</strong>
+              </div>
+              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
+            </div>
+            <div class="radio-card" data-val="unsure" onclick="selectRadio('q-residency','unsure',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text">
+                <strong data-zh="需要协助判断 I need assistance to determine this" data-en="I need assistance to determine this 需要协助判断">需要协助判断 I need assistance to determine this</strong>
+              </div>
+            </div>
+          </div>
         </div>
 
-        
-    </body>
+        <!-- Q2: Live outside PA/NJ/DE -->
+        <div class="field full" style="margin-bottom:16px;">
+          <div class="field-label">
+            <span data-zh="您住在宾州、新泽西或特拉华之外的州吗？" data-en="Do you live outside of PA, NJ, or DE?">您住在宾州、新泽西或特拉华之外的州吗？</span>
+            <span class="req">*</span>
+          </div>
+          <div class="radio-cards" id="q-live-outside">
+            <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-live-outside','yes',true,'我们目前只服务 PA、NJ、DE 的居民。\nWe currently only serve residents of PA, NJ, and DE.')">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
+              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
+            </div>
+            <div class="radio-card" data-val="no" onclick="selectRadio('q-live-outside','no',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3: Income from outside PA/NJ/DE -->
+        <div class="field full" style="margin-bottom:16px;">
+          <div class="field-label">
+            <span data-zh="您有宾州、新泽西或特拉华之外的州的收入吗？" data-en="Do you have income from states other than PA, NJ, or DE?">您有宾州、新泽西或特拉华之外的州的收入吗？</span>
+            <span class="req">*</span>
+            <span class="sub" data-zh="请检查您的 W-2 Box 15 是否有 PA、DE、NJ 以外的州缩写" data-en="Please check Box 15 on your W-2 for state abbreviations other than PA, DE, or NJ">请检查您的 W-2 Box 15 是否有 PA、DE、NJ 以外的州缩写</span>
+          </div>
+          <div class="radio-cards" id="q-income-outside">
+            <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-income-outside','yes',true,'我们目前不处理其他州的州税申报。\nWe currently do not handle tax returns for other states.')">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
+              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
+            </div>
+            <div class="radio-card" data-val="no" onclick="selectRadio('q-income-outside','no',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4: Business income -->
+        <div class="field full" style="margin-bottom:16px;">
+          <div class="field-label">
+            <span data-zh="您2025年有做生意/自营收入吗？" data-en="Do you have business/self-employment income in 2025?">您2025年有做生意/自营收入吗？</span>
+            <span class="req">*</span>
+            <span class="sub" data-zh="不包括 Uber/Lyft、餐馆员工等" data-en="Excludes Uber/Lyft drivers, restaurant employees, etc.">不包括 Uber/Lyft、餐馆员工等</span>
+          </div>
+          <div class="radio-cards" id="q-business">
+            <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-business','yes',true,'商业/自营收入超出我们的服务范围。\nBusiness/self-employment income is outside our service scope.')">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
+              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
+            </div>
+            <div class="radio-card" data-val="no" onclick="selectRadio('q-business','no',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5: Rental income -->
+        <div class="field full" style="margin-bottom:16px;">
+          <div class="field-label">
+            <span data-zh="您2025年有租金收入吗？" data-en="Do you have rental income in 2025?">您2025年有租金收入吗？</span>
+            <span class="req">*</span>
+          </div>
+          <div class="radio-cards" id="q-rental">
+            <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-rental','yes',true,'租金收入超出我们的服务范围。\nRental income is outside our service scope.')">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
+              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
+            </div>
+            <div class="radio-card" data-val="no" onclick="selectRadio('q-rental','no',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6: Crypto -->
+        <div class="field full" style="margin-bottom:16px;">
+          <div class="field-label">
+            <span data-zh="您2025年有加密货币交易吗？（买或卖）" data-en="Do you have cryptocurrency transactions in 2025? (buying or selling)">您2025年有加密货币交易吗？（买或卖）</span>
+            <span class="req">*</span>
+          </div>
+          <div class="radio-cards" id="q-crypto">
+            <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-crypto','yes',true,'加密货币交易超出我们的服务范围。\nCryptocurrency transactions are outside our service scope.')">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
+              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
+            </div>
+            <div class="radio-card" data-val="no" onclick="selectRadio('q-crypto','no',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q7: Stocks -->
+        <div class="field full" style="margin-bottom:16px;">
+          <div class="field-label">
+            <span data-zh="您2025年有超过10次股票交易吗？" data-en="Do you have more than 10 stock transactions in 2025?">您2025年有超过10次股票交易吗？</span>
+            <span class="req">*</span>
+          </div>
+          <div class="radio-cards" id="q-stocks">
+            <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-stocks','yes',true,'超过10次股票交易超出我们的服务范围。\nMore than 10 stock transactions is outside our service scope.')">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
+              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
+            </div>
+            <div class="radio-card" data-val="no" onclick="selectRadio('q-stocks','no',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q8: Income limit -->
+        <div class="field full" style="margin-bottom:16px;">
+          <div class="field-label">
+            <span data-zh="您2025年的总家庭收入超过 $69,000 吗？" data-en="Does your total household income exceed $69,000 in 2025?">您2025年的总家庭收入超过 $69,000 吗？</span>
+            <span class="req">*</span>
+          </div>
+          <div class="radio-cards" id="q-income">
+            <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-income','yes',true,'您的家庭收入超过 VITA 服务上限 $69,000。\nYour household income exceeds the VITA service limit of $69,000.')">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
+              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
+            </div>
+            <div class="radio-card" data-val="no" onclick="selectRadio('q-income','no',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ineligible box -->
+        <div class="ineligible-box" id="ineligible-box">
+          <div class="ineligible-icon">⚠️</div>
+          <div class="ineligible-title" data-zh="很抱歉，您可能不符合我们的服务资格" data-en="We're sorry, you may not be eligible for our service">很抱歉，您可能不符合我们的服务资格</div>
+          <div class="ineligible-reason" id="ineligible-reason"></div>
+          <div class="ineligible-contact">
+            <strong data-zh="如有疑问或特殊情况，请联系我们的办公室：" data-en="If you have questions or special circumstances, please contact our office:">如有疑问或特殊情况，请联系我们的办公室：</strong>
+            📞 (215) 922-6156<br>
+            ✉️ vita@chinatown-pcdc.org
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <div class="nav-progress" data-zh="第 1 步，共 10 步" data-en="Step 1 of 10">第 1 步，共 10 步</div>
+          <div class="nav-btns">
+            <button class="btn btn-primary" onclick="nextStep(1)" id="btn-next-1" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ STEP 2: Consent ════ -->
+  <div class="screen" id="screen-2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第二步 · IRS 同意书" data-en="Step 2 · IRS Consent Form">第二步 · IRS 同意书</div>
+        <div class="card-title" data-zh="请签署 IRS 14446 表格" data-en="Please Sign IRS Form 14446">请签署 IRS 14446 表格</div>
+        <div class="card-sub" data-zh="在继续填写前，请通过下方链接签署同意书。签署后返回此页面继续。" data-en="Before continuing, please sign the consent form using the link below. Return to this page after signing.">在继续填写前，请通过下方链接签署同意书。签署后返回此页面继续。</div>
+      </div>
+      <div class="card-body">
+        <div class="notice warning" data-zh="如不同意签署，您将无法获得报稅服务。签署后请勾选下方「已签名」。" data-en="If you do not agree to sign, you will not be able to receive tax filing services. After signing, please check 'Signed' below.">如不同意签署，您将无法获得报稅服务。签署后请勾选下方「已签名」。</div>
+
+        <div class="form-section-title" data-zh="主报税人 Primary Taxpayer" data-en="Primary Taxpayer 主报税人">主报税人 Primary Taxpayer</div>
+        <a class="consent-link" href="https://bit.ly/F14446ChineseTP" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span data-zh="点击此处签署主报税人同意书" data-en="Click here to sign Primary Taxpayer consent form">点击此处签署主报税人同意书</span>
+        </a>
+        <div class="field" style="margin-bottom:20px;">
+          <div class="field-label" data-zh="主报税人签署状态" data-en="Primary Taxpayer Signing Status">主报税人签署状态<span class="req">*</span></div>
+          <div class="radio-cards" id="q-consent-tp">
+            <div class="radio-card" data-val="signed" onclick="selectRadio('q-consent-tp','signed',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="已签名 Signed" data-en="Signed 已签名">已签名 Signed</strong></div>
+            </div>
+            <div class="radio-card" data-val="unsigned" onclick="selectRadio('q-consent-tp','unsigned',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="未签名 Not Signed" data-en="Not Signed 未签名">未签名 Not Signed</strong></div>
+            </div>
+            <div class="radio-card" data-val="na" onclick="selectRadio('q-consent-tp','na',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="不适用 N/A" data-en="N/A 不适用">不适用 N/A</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section-title" data-zh="配偶 Spouse" data-en="Spouse 配偶">配偶 Spouse</div>
+        <a class="consent-link" href="https://bit.ly/F14446ChineseSpouse" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span data-zh="点击此处签署配偶同意书" data-en="Click here to sign Spouse consent form">点击此处签署配偶同意书</span>
+        </a>
+        <div class="field" style="margin-bottom:0;">
+          <div class="field-label" data-zh="配偶签署状态" data-en="Spouse Signing Status">配偶签署状态<span class="req">*</span></div>
+          <div class="radio-cards" id="q-consent-sp">
+            <div class="radio-card" data-val="signed" onclick="selectRadio('q-consent-sp','signed',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="已签名 Signed" data-en="Signed 已签名">已签名 Signed</strong></div>
+            </div>
+            <div class="radio-card" data-val="unsigned" onclick="selectRadio('q-consent-sp','unsigned',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="未签名 Not Signed" data-en="Not Signed 未签名">未签名 Not Signed</strong></div>
+            </div>
+            <div class="radio-card" data-val="na" onclick="selectRadio('q-consent-sp','na',false)">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="不适用 N/A" data-en="N/A 不适用">不适用 N/A</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <div class="nav-progress" data-zh="第 2 步，共 10 步" data-en="Step 2 of 10">第 2 步，共 10 步</div>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="prevStep(2)" data-zh="← 返回" data-en="← Back">← 返回</button>
+            <button class="btn btn-primary" onclick="nextStep(2)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ STEP 3: Demographics ════ -->
+  <div class="screen" id="screen-3">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第三步 · 人口统计" data-en="Step 3 · Demographic Information">第三步 · 人口统计</div>
+        <div class="card-title" data-zh="基本人口统计信息" data-en="Basic Demographic Information">基本人口统计信息</div>
+        <div class="card-sub" data-zh="此信息仅用于统计，不影响服务资格。" data-en="This information is used for statistical purposes only and does not affect eligibility.">此信息仅用于统计，不影响服务资格。</div>
+      </div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="field">
+            <div class="field-label" data-zh="性别" data-en="Gender">性别</div>
+            <select id="f-gender">
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="Male" data-zh="男 Male" data-en="Male 男">男 Male</option>
+              <option value="Female" data-zh="女 Female" data-en="Female 女">女 Female</option>
+              <option value="Prefer not to answer" data-zh="不想回答" data-en="Prefer not to answer">不想回答</option>
+            </select>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="种族" data-en="Race">种族</div>
+            <select id="f-race">
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="Hispanic or Latino" data-zh="西班牙裔或拉丁裔" data-en="Hispanic or Latino">西班牙裔或拉丁裔</option>
+              <option value="Not Hispanic or Latino" data-zh="不是西班牙裔或拉丁裔" data-en="Not Hispanic or Latino">不是西班牙裔或拉丁裔</option>
+            </select>
+          </div>
+          <div class="field full">
+            <div class="field-label" data-zh="民族" data-en="Ethnicity">民族</div>
+            <select id="f-ethnicity">
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="Asian" data-zh="亚洲人 Asian" data-en="Asian 亚洲人">亚洲人 Asian</option>
+              <option value="Black or African American" data-zh="黑人或非裔美国人" data-en="Black or African American">黑人或非裔美国人</option>
+              <option value="White" data-zh="白人 White" data-en="White 白人">白人 White</option>
+              <option value="Native Hawaiian or other Pacific Islander" data-zh="夏威夷原住民或其他太平洋岛民" data-en="Native Hawaiian or other Pacific Islander">夏威夷原住民或其他太平洋岛民</option>
+              <option value="American Indian or Alaska Native" data-zh="美洲印第安人或阿拉斯加原住民" data-en="American Indian or Alaska Native">美洲印第安人或阿拉斯加原住民</option>
+              <option value="Prefer not to answer" data-zh="不想回答" data-en="Prefer not to answer">不想回答</option>
+            </select>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="英语水平" data-en="English Proficiency">英语水平<span class="req">*</span></div>
+            <select id="f-english" required>
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="Proficient" data-zh="熟练 Proficient" data-en="Proficient 熟练">熟练 Proficient</option>
+              <option value="Not proficient" data-zh="不熟练 Not proficient" data-en="Not proficient 不熟练">不熟练 Not proficient</option>
+            </select>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="残障状况" data-en="Disability Status">残障状况</div>
+            <select id="f-disability">
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="Disabled" data-zh="残障人士" data-en="Disabled">残障人士</option>
+              <option value="Not disabled" data-zh="非残障人士" data-en="Not disabled">非残障人士</option>
+            </select>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="婚姻状况" data-en="Marital Status">婚姻状况<span class="req">*</span></div>
+            <select id="f-marital" required>
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="Single" data-zh="单身 Single" data-en="Single 单身">单身 Single</option>
+              <option value="Married" data-zh="已婚 Married" data-en="Married 已婚">已婚 Married</option>
+              <option value="Separated" data-zh="分居 Separated" data-en="Separated 分居">分居 Separated</option>
+              <option value="Divorced" data-zh="离婚 Divorced" data-en="Divorced 离婚">离婚 Divorced</option>
+              <option value="Widow(er)" data-zh="寡妇或鳏夫" data-en="Widow(er)">寡妇或鳏夫 Widow(er)</option>
+            </select>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="房屋状况" data-en="Housing Status">房屋状况</div>
+            <select id="f-housing">
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="Rent" data-zh="租客 Rent" data-en="Rent 租客">租客 Rent</option>
+              <option value="Own" data-zh="房主 Own" data-en="Own 房主">房主 Own</option>
+              <option value="Living with others" data-zh="与他人同住" data-en="Living with others">与他人同住</option>
+            </select>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="教育程度" data-en="Education Level">教育程度</div>
+            <select id="f-education">
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="College or above" data-zh="大专及以上" data-en="College or above">大专及以上</option>
+              <option value="High school" data-zh="中学" data-en="High school">中学</option>
+              <option value="Middle school" data-zh="初中" data-en="Middle school">初中</option>
+              <option value="Elementary school" data-zh="小学" data-en="Elementary school">小学</option>
+              <option value="No formal education" data-zh="没有正规教育" data-en="No formal education">没有正规教育</option>
+            </select>
+          </div>
+          <div class="field full">
+            <div class="field-label" data-zh="您是怎么知道我们的服务？" data-en="How did you hear about our service?">您是怎么知道我们的服务？</div>
+            <select id="f-referral">
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="IRS" data-zh="国税局 IRS" data-en="IRS 国税局">国税局 IRS</option>
+              <option value="PCDC Marketing" data-zh="PCDC 营销" data-en="PCDC Marketing">PCDC 营销</option>
+              <option value="Friends or family" data-zh="朋友或家人" data-en="Friends or family">朋友或家人</option>
+              <option value="Returning client" data-zh="回头客" data-en="Returning client">回头客</option>
+              <option value="CWF" data-zh="Campaign for Working Families (CWF)" data-en="Campaign for Working Families (CWF)">Campaign for Working Families (CWF)</option>
+              <option value="KITHS" data-zh="KITHS" data-en="KITHS">KITHS</option>
+              <option value="Other" data-zh="其他" data-en="Other">其他</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <div class="nav-progress" data-zh="第 3 步，共 10 步" data-en="Step 3 of 10">第 3 步，共 10 步</div>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="prevStep(3)" data-zh="← 返回" data-en="← Back">← 返回</button>
+            <button class="btn btn-primary" onclick="nextStep(3)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ STEP 4: Primary Taxpayer ════ -->
+  <div class="screen" id="screen-4">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第四步 · 主报税人信息" data-en="Step 4 · Primary Taxpayer Information">第四步 · 主报税人信息</div>
+        <div class="card-title" data-zh="主报税人基本信息" data-en="Primary Taxpayer Basic Information">主报税人基本信息</div>
+      </div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="field">
+            <div class="field-label" data-zh="姓氏 Last Name" data-en="Last Name 姓氏">姓氏 Last Name<span class="req">*</span></div>
+            <input type="text" id="f-last" required>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="名字 First Name" data-en="First Name 名字">名字 First Name<span class="req">*</span></div>
+            <input type="text" id="f-first" required>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="出生日期" data-en="Date of Birth">出生日期<span class="req">*</span></div>
+            <input type="date" id="f-dob" required>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="电话号码" data-en="Phone Number">电话号码<span class="req">*</span></div>
+            <input type="tel" id="f-phone" required>
+          </div>
+          <div class="field full">
+            <div class="field-label" data-zh="电子邮箱" data-en="Email Address">电子邮箱<span class="req">*</span></div>
+            <input type="email" id="f-email" required>
+            <div class="field-hint" data-zh="如没有电子邮箱，请填写 N/A。电子邮箱是重要联系渠道，请确保正确。" data-en="If you have no email, enter N/A. Email is an important communication channel — please ensure it is correct.">如没有电子邮箱，请填写 N/A。电子邮箱是重要联系渠道，请确保正确。</div>
+          </div>
+          <div class="field full">
+            <div class="field-label" data-zh="邮寄地址（门牌号、街道名称、单位号）" data-en="Mailing Address (street number, name, unit)">邮寄地址（门牌号、街道名称、单位号）<span class="req">*</span></div>
+            <input type="text" id="f-address" required>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="城市 City" data-en="City 城市">城市 City<span class="req">*</span></div>
+            <select id="f-city" required>
+              <option value="" data-zh="请选择" data-en="Please select">请选择</option>
+              <option value="Philadelphia" data-zh="Philadelphia 费城" data-en="Philadelphia 费城">Philadelphia 费城</option>
+              <option value="Other" data-zh="其他 Other" data-en="Other 其他">其他 Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="邮政编码 ZIP" data-en="ZIP Code 邮政编码">邮政编码 ZIP<span class="req">*</span></div>
+            <input type="text" id="f-zip" maxlength="10" required>
+          </div>
+
+          <div class="field full">
+            <div class="field-label" data-zh="使用语言（可多选，请优先选最擅长的）" data-en="Language(s) spoken (select all, strongest first)">使用语言（可多选，请优先选最擅长的）<span class="req">*</span></div>
+            <div class="tag-group" id="q-language">
+              <button class="tag-btn" data-val="Cantonese" onclick="toggleTag('q-language',this)" data-zh="广东话 Cantonese" data-en="Cantonese 广东话">广东话 Cantonese</button>
+              <button class="tag-btn" data-val="English" onclick="toggleTag('q-language',this)" data-zh="英语 English" data-en="English 英语">英语 English</button>
+              <button class="tag-btn" data-val="Mandarin" onclick="toggleTag('q-language',this)" data-zh="普通话 Mandarin" data-en="Mandarin 普通话">普通话 Mandarin</button>
+            </div>
+          </div>
+
+          <div class="field full">
+            <div class="field-label" data-zh="希望联系时段（可多选）" data-en="Preferred contact time (select all that apply)">希望联系时段（可多选）<span class="req">*</span></div>
+            <div class="tag-group" id="q-contact-time">
+              <button class="tag-btn" data-val="Any" onclick="toggleTag('q-contact-time',this)" data-zh="任何时间" data-en="Any time">任何时间</button>
+              <button class="tag-btn" data-val="Morning" onclick="toggleTag('q-contact-time',this)" data-zh="早上" data-en="Morning">早上</button>
+              <button class="tag-btn" data-val="Afternoon" onclick="toggleTag('q-contact-time',this)" data-zh="下午" data-en="Afternoon">下午</button>
+              <button class="tag-btn" data-val="Evening" onclick="toggleTag('q-contact-time',this)" data-zh="晚上" data-en="Evening">晚上</button>
+              <button class="tag-btn" data-val="Monday to Friday" onclick="toggleTag('q-contact-time',this)" data-zh="周一至周五" data-en="Monday to Friday">周一至周五</button>
+              <button class="tag-btn" data-val="Weekend" onclick="toggleTag('q-contact-time',this)" data-zh="周末" data-en="Weekend">周末</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label" data-zh="新客户或回头客" data-en="New or returning client">新客户或回头客<span class="req">*</span></div>
+            <div class="radio-cards" id="q-returning">
+              <div class="radio-card" data-val="Returning Client" onclick="selectRadio('q-returning','Returning Client',false)">
+                <div class="radio-indicator"></div>
+                <div class="radio-text"><strong data-zh="回头客 Returning Client" data-en="Returning Client 回头客">回头客 Returning Client</strong></div>
+              </div>
+              <div class="radio-card" data-val="New Client" onclick="selectRadio('q-returning','New Client',false)">
+                <div class="radio-indicator"></div>
+                <div class="radio-text"><strong data-zh="新客户 New Client" data-en="New Client 新客户">新客户 New Client</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <div class="nav-progress" data-zh="第 4 步，共 10 步" data-en="Step 4 of 10">第 4 步，共 10 步</div>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="prevStep(4)" data-zh="← 返回" data-en="← Back">← 返回</button>
+            <button class="btn btn-primary" onclick="nextStep(4)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ STEP 5: Form Filler ════ -->
+  <div class="screen" id="screen-5">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第五步 · 填表人信息" data-en="Step 5 · Form Filler Information">第五步 · 填表人信息</div>
+        <div class="card-title" data-zh="谁在填写这份表格？" data-en="Who is completing this form?">谁在填写这份表格？</div>
+      </div>
+      <div class="card-body">
+        <div class="field full" style="margin-bottom:20px;">
+          <div class="field-label" data-zh="您与主报税人的关系是？" data-en="What is your relationship to the primary taxpayer?">您与主报税人的关系是？<span class="req">*</span></div>
+          <div class="radio-cards" id="q-relation">
+            <div class="radio-card" data-val="Self" onclick="selectRadio('q-relation','Self',false); toggleFillerFields()">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="本人 Self" data-en="Self 本人">本人 Self</strong></div>
+            </div>
+            <div class="radio-card" data-val="Spouse" onclick="selectRadio('q-relation','Spouse',false); toggleFillerFields()">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="配偶 Spouse" data-en="Spouse 配偶">配偶 Spouse</strong></div>
+            </div>
+            <div class="radio-card" data-val="Parents" onclick="selectRadio('q-relation','Parents',false); toggleFillerFields()">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="父母 Parents" data-en="Parents 父母">父母 Parents</strong></div>
+            </div>
+            <div class="radio-card" data-val="Son or Daughter" onclick="selectRadio('q-relation','Son or Daughter',false); toggleFillerFields()">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="子女 Son/Daughter" data-en="Son/Daughter 子女">子女 Son/Daughter</strong></div>
+            </div>
+            <div class="radio-card" data-val="Brother or Sister" onclick="selectRadio('q-relation','Brother or Sister',false); toggleFillerFields()">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="兄弟姐妹 Sibling" data-en="Sibling 兄弟姐妹">兄弟姐妹 Sibling</strong></div>
+            </div>
+            <div class="radio-card" data-val="Other" onclick="selectRadio('q-relation','Other',false); toggleFillerFields()">
+              <div class="radio-indicator"></div>
+              <div class="radio-text"><strong data-zh="其他 Other" data-en="Other 其他">其他 Other</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="filler-fields" style="display:none;">
+          <div class="notice" data-zh="由于填表人不是主报税人本人，请填写以下联系信息。" data-en="Since the form filler is not the primary taxpayer, please provide the following contact information.">由于填表人不是主报税人本人，请填写以下联系信息。</div>
+          <div class="form-grid" style="margin-top:16px;">
+            <div class="field">
+              <div class="field-label" data-zh="填表人姓氏" data-en="Filler Last Name">填表人姓氏<span class="req">*</span></div>
+              <input type="text" id="f-filler-last">
+            </div>
+            <div class="field">
+              <div class="field-label" data-zh="填表人名字" data-en="Filler First Name">填表人名字<span class="req">*</span></div>
+              <input type="text" id="f-filler-first">
+            </div>
+            <div class="field">
+              <div class="field-label" data-zh="填表人电话" data-en="Filler Phone">填表人电话<span class="req">*</span></div>
+              <input type="tel" id="f-filler-phone">
+            </div>
+            <div class="field">
+              <div class="field-label" data-zh="填表人邮箱" data-en="Filler Email">填表人邮箱<span class="req">*</span></div>
+              <input type="email" id="f-filler-email">
+              <div class="field-hint" data-zh="如无电子邮箱请填 N/A" data-en="Enter N/A if no email">如无电子邮箱请填 N/A</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <div class="nav-progress" data-zh="第 5 步，共 10 步" data-en="Step 5 of 10">第 5 步，共 10 步</div>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="prevStep(5)" data-zh="← 返回" data-en="← Back">← 返回</button>
+            <button class="btn btn-primary" onclick="nextStep(5)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ STEP 6: Tax Details ════ -->
+  <div class="screen" id="screen-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第六步 · 报税详情" data-en="Step 6 · Tax Filing Details">第六步 · 报税详情</div>
+        <div class="card-title" data-zh="报税年份及特殊情况" data-en="Tax Years and Special Circumstances">报税年份及特殊情况</div>
+      </div>
+      <div class="card-body">
+        <div class="field full" style="margin-bottom:20px;">
+          <div class="field-label" data-zh="您打算报哪几年的税？（可多选）" data-en="Which tax year(s) do you want to file? (select all that apply)">您打算报哪几年的税？（可多选）<span class="req">*</span></div>
+          <div class="tag-group" id="q-tax-years">
+            <button class="tag-btn" data-val="2025" onclick="toggleTag('q-tax-years',this)">2025</button>
+            <button class="tag-btn" data-val="2024" onclick="toggleTag('q-tax-years',this)">2024</button>
+            <button class="tag-btn" data-val="2023" onclick="toggleTag('q-tax-years',this)">2023</button>
+            <button class="tag-btn" data-val="2022" onclick="toggleTag('q-tax-years',this)">2022</button>
+            <button class="tag-btn" data-val="2021" onclick="toggleTag('q-tax-years',this)">2021</button>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <div class="field-label" data-zh="您是新泽西 NJ 居民吗？" data-en="Are you a New Jersey (NJ) resident?">您是新泽西 NJ 居民吗？<span class="req">*</span></div>
+            <div class="radio-cards" id="q-nj-resident">
+              <div class="radio-card" data-val="Yes" onclick="selectRadio('q-nj-resident','Yes',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div></div>
+              <div class="radio-card" data-val="No" onclick="selectRadio('q-nj-resident','No',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div></div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="住在 PA，在 NJ 工作？" data-en="Live in PA, work in NJ?">住在 PA，在 NJ 工作？<span class="req">*</span></div>
+            <div class="radio-cards" id="q-pa-nj">
+              <div class="radio-card" data-val="Yes" onclick="selectRadio('q-pa-nj','Yes',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div></div>
+              <div class="radio-card" data-val="No" onclick="selectRadio('q-pa-nj','No',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div></div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="住在 NJ，在 PA 工作？" data-en="Live in NJ, work in PA?">住在 NJ，在 PA 工作？<span class="req">*</span></div>
+            <div class="radio-cards" id="q-nj-pa">
+              <div class="radio-card" data-val="Yes" onclick="selectRadio('q-nj-pa','Yes',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div></div>
+              <div class="radio-card" data-val="No" onclick="selectRadio('q-nj-pa','No',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div></div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="您是开 Uber/Lyft 的吗？" data-en="Do you drive for Uber/Lyft?">您是开 Uber/Lyft 的吗？<span class="req">*</span></div>
+            <div class="radio-cards" id="q-uber">
+              <div class="radio-card" data-val="Yes" onclick="selectRadio('q-uber','Yes',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div></div>
+              <div class="radio-card" data-val="No" onclick="selectRadio('q-uber','No',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div></div>
+            </div>
+          </div>
+          <div class="field full">
+            <div class="field-label" data-zh="您曾参加过2008年首次购房者税收抵免计划吗？" data-en="Did you receive the 2008 First-Time Homebuyer Tax Credit?">您曾参加过2008年首次购房者税收抵免计划吗？<span class="req">*</span></div>
+            <div class="radio-cards" id="q-homebuyer">
+              <div class="radio-card" data-val="Yes" onclick="selectRadio('q-homebuyer','Yes',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div></div>
+              <div class="radio-card" data-val="No" onclick="selectRadio('q-homebuyer','No',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div></div>
+              <div class="radio-card" data-val="Unsure" onclick="selectRadio('q-homebuyer','Unsure',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="不确定 Unsure" data-en="Unsure 不确定">不确定 Unsure</strong></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <div class="nav-progress" data-zh="第 6 步，共 10 步" data-en="Step 6 of 10">第 6 步，共 10 步</div>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="prevStep(6)" data-zh="← 返回" data-en="← Back">← 返回</button>
+            <button class="btn btn-primary" onclick="nextStep(6)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ STEP 7: Household ════ -->
+  <div class="screen" id="screen-7">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第七步 · 家庭信息" data-en="Step 7 · Household Information">第七步 · 家庭信息</div>
+        <div class="card-title" data-zh="家庭人数与抚养人" data-en="Household Size and Dependents">家庭人数与抚养人</div>
+      </div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="field">
+            <div class="field-label" data-zh="家庭人数" data-en="Household Size">家庭人数<span class="req">*</span></div>
+            <input type="number" id="f-household" min="1" max="20" required>
+          </div>
+          <div class="field">
+            <div class="field-label" data-zh="受抚养人数量" data-en="Number of Dependents">受抚养人数量<span class="req">*</span></div>
+            <input type="number" id="f-dependents" min="0" max="20" required>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <div class="nav-progress" data-zh="第 7 步，共 10 步" data-en="Step 7 of 10">第 7 步，共 10 步</div>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="prevStep(7)" data-zh="← 返回" data-en="← Back">← 返回</button>
+            <button class="btn btn-primary" onclick="nextStep(7)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ STEP 8: Documents ════ -->
+  <div class="screen" id="screen-8">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第八步 · 报税文件清单" data-en="Step 8 · Tax Documents Checklist">第八步 · 报税文件清单</div>
+        <div class="card-title" data-zh="您已准备好哪些文件？" data-en="Which documents do you have ready?">您已准备好哪些文件？</div>
+        <div class="card-sub" data-zh="请勾选您已准备好的文件（可多选）" data-en="Please check all documents you have prepared">请勾选您已准备好的文件（可多选）</div>
+      </div>
+      <div class="card-body">
+        <div class="check-cards" id="q-docs">
+          <div class="check-card" data-val="ID" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong data-zh="身份证 ID" data-en="Photo ID 身份证">身份证 ID</strong><span data-zh="有效照片身份证" data-en="Valid photo ID">有效照片身份证</span></div>
+          </div>
+          <div class="check-card" data-val="SS Cards" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong data-zh="社会安全卡" data-en="Social Security Cards">社会安全卡</strong><span data-zh="本人及家庭成员" data-en="Taxpayer and family">本人及家庭成员</span></div>
+          </div>
+          <div class="check-card" data-val="Last year Tax Return" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong data-zh="去年报税表" data-en="Last Year's Tax Return">去年报税表</strong><span data-zh="2024年报税表（如有）" data-en="2024 return (if available)">2024年报税表（如有）</span></div>
+          </div>
+          <div class="check-card" data-val="1095-A" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1095-A</strong><span data-zh="奥巴马医疗保险表" data-en="ACA Marketplace insurance">奥巴马医疗保险表</span></div>
+          </div>
+          <div class="check-card" data-val="W2" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>W-2</strong><span data-zh="工资收入表" data-en="Wage and salary income">工资收入表</span></div>
+          </div>
+          <div class="check-card" data-val="1099-NEC" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1099-NEC</strong><span data-zh="自营/合同工收入" data-en="Self-employment income">自营/合同工收入</span></div>
+          </div>
+          <div class="check-card" data-val="1099-MISC" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1099-MISC</strong><span data-zh="杂项收入" data-en="Miscellaneous income">杂项收入</span></div>
+          </div>
+          <div class="check-card" data-val="1099-R" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1099-R</strong><span data-zh="退休金收入" data-en="Retirement income">退休金收入</span></div>
+          </div>
+          <div class="check-card" data-val="1099-G" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1099-G</strong><span data-zh="政府福利/失业金" data-en="Government benefits / unemployment">政府福利/失业金</span></div>
+          </div>
+          <div class="check-card" data-val="1099-INT/DIV" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1099-INT / DIV</strong><span data-zh="利息/股息收入" data-en="Interest / dividend income">利息/股息收入</span></div>
+          </div>
+          <div class="check-card" data-val="1099-Conso/1099-B" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1099-Conso / 1099-B</strong><span data-zh="股票/基金交易" data-en="Stock transactions">股票/基金交易</span></div>
+          </div>
+          <div class="check-card" data-val="1099-SSA" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1099-SSA</strong><span data-zh="社会安全退休金" data-en="Social Security benefits">社会安全退休金</span></div>
+          </div>
+          <div class="check-card" data-val="1098-T" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1098-T</strong><span data-zh="学费支付明细" data-en="Tuition statement">学费支付明细</span></div>
+          </div>
+          <div class="check-card" data-val="1098-E" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong>1098-E</strong><span data-zh="学生贷款利息" data-en="Student loan interest">学生贷款利息</span></div>
+          </div>
+          <div class="check-card" data-val="Voided Check" onclick="toggleCheck(this)">
+            <div class="check-indicator"></div>
+            <div class="check-text"><strong data-zh="作废支票" data-en="Voided Check">作废支票</strong><span data-zh="用于退税直接存款" data-en="For direct deposit">用于退税直接存款</span></div>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <div class="nav-progress" data-zh="第 8 步，共 10 步" data-en="Step 8 of 10">第 8 步，共 10 步</div>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="prevStep(8)" data-zh="← 返回" data-en="← Back">← 返回</button>
+            <button class="btn btn-primary" onclick="nextStep(8)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ STEP 9: Additional ════ -->
+  <div class="screen" id="screen-9">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第九步 · 其他信息" data-en="Step 9 · Additional Information">第九步 · 其他信息</div>
+        <div class="card-title" data-zh="最后几个问题" data-en="A few more questions">最后几个问题</div>
+      </div>
+      <div class="card-body">
+        <div class="field full" style="margin-bottom:20px;">
+          <div class="field-label" data-zh="您知道怎样使用 Zoom 吗？" data-en="Do you know how to use Zoom?">您知道怎样使用 Zoom 吗？</div>
+          <div class="radio-cards" id="q-zoom">
+            <div class="radio-card" data-val="Yes" onclick="selectRadio('q-zoom','Yes',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="知道 Yes" data-en="Yes 知道">知道 Yes</strong></div></div>
+            <div class="radio-card" data-val="No" onclick="selectRadio('q-zoom','No',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="不知道 No" data-en="No 不知道">不知道 No</strong></div></div>
+          </div>
+        </div>
+
+        <div class="field full" style="margin-bottom:20px;">
+          <div class="field-label" data-zh="您的父母或孩子也在 PCDC 申请报税服务吗？" data-en="Are your parents or children also applying for PCDC tax services?">您的父母或孩子也在 PCDC 申请报税服务吗？</div>
+          <div class="radio-cards" id="q-family-pcdc">
+            <div class="radio-card" data-val="Yes" onclick="selectRadio('q-family-pcdc','Yes',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div></div>
+            <div class="radio-card" data-val="No" onclick="selectRadio('q-family-pcdc','No',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="否 No" data-en="No 否">否 No</strong></div></div>
+            <div class="radio-card" data-val="Unsure" onclick="selectRadio('q-family-pcdc','Unsure',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="不确定 Unsure" data-en="Unsure 不确定">不确定 Unsure</strong></div></div>
+          </div>
+        </div>
+
+        <div class="field full" style="margin-bottom:20px;">
+          <div class="field-label" data-zh="您有任何疑问或意见想反馈给我们吗？" data-en="Do you have any questions or feedback for us?">您有任何疑问或意见想反馈给我们吗？</div>
+          <textarea id="f-notes" placeholder="选填 / Optional"></textarea>
+        </div>
+
+        <div class="field full" style="margin-bottom:20px;">
+          <div class="field-label" data-zh="您想收到我们的住房和家庭通讯吗？" data-en="Would you like to receive our housing and family newsletter?">您想收到我们的住房和家庭通讯吗？</div>
+          <div class="radio-cards" id="q-newsletter">
+            <div class="radio-card" data-val="Yes" onclick="selectRadio('q-newsletter','Yes',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="参加 Yes" data-en="Yes 参加">参加 Yes</strong></div></div>
+            <div class="radio-card" data-val="No" onclick="selectRadio('q-newsletter','No',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="不参加 No" data-en="No 不参加">不参加 No</strong></div></div>
+          </div>
+        </div>
+
+        <div class="field full">
+          <div class="field-label" data-zh="您想了解更多福利或其他援助计划吗？" data-en="Would you like to learn about other benefits or assistance programs?">您想了解更多福利或其他援助计划吗？</div>
+          <div class="radio-cards" id="q-benefits">
+            <div class="radio-card" data-val="Yes" onclick="selectRadio('q-benefits','Yes',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="想了解 Yes" data-en="Yes 想了解">想了解 Yes</strong></div></div>
+            <div class="radio-card" data-val="No" onclick="selectRadio('q-benefits','No',false)"><div class="radio-indicator"></div><div class="radio-text"><strong data-zh="不需要 No" data-en="No 不需要">不需要 No</strong></div></div>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <div class="nav-progress" data-zh="第 9 步，共 10 步" data-en="Step 9 of 10">第 9 步，共 10 步</div>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="prevStep(9)" data-zh="← 返回" data-en="← Back">← 返回</button>
+            <button class="btn btn-primary" onclick="nextStep(9)" data-zh="下一步 →" data-en="Next →">下一步 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ STEP 10: Review ════ -->
+  <div class="screen" id="screen-10">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-step" data-zh="第十步 · 确认提交" data-en="Step 10 · Review & Submit">第十步 · 确认提交</div>
+        <div class="card-title" data-zh="请核对您的信息" data-en="Please review your information">请核对您的信息</div>
+        <div class="card-sub" data-zh="提交前请仔细核对，如需修改请点击返回。" data-en="Please review carefully before submitting. Click Back to make changes.">提交前请仔细核对，如需修改请点击返回。</div>
+      </div>
+      <div class="card-body" id="summary-body">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <div style="text-align:center; padding: 16px 0 40px;">
+      <button class="btn btn-secondary" onclick="prevStep(10)" style="margin-right:12px;" data-zh="← 返回修改" data-en="← Back to Edit">← 返回修改</button>
+      <button class="btn btn-primary" onclick="submitForm()" id="btn-submit" style="padding:12px 32px; font-size:15px;" data-zh="提交申请 ✓" data-en="Submit Application ✓">提交申请 ✓</button>
+    </div>
+  </div>
+
+  <!-- ════ THANK YOU ════ -->
+  <div class="screen" id="screen-done">
+    <div class="card">
+      <div class="thankyou-wrap">
+        <div class="thankyou-icon">🎉</div>
+        <div class="thankyou-title" data-zh="申请已成功提交！" data-en="Application Successfully Submitted!">申请已成功提交！</div>
+        <div class="thankyou-sub" data-zh="感谢您申请 PCDC VITA 免费在线报税服务！我们已成功收到您的申请，一封确认邮件已发送至您的邮箱。" data-en="Thank you for applying for PCDC VITA's free online tax filing service! We have successfully received your application and a confirmation email has been sent.">感谢您申请 PCDC VITA 免费在线报税服务！我们已成功收到您的申请，一封确认邮件已发送至您的邮箱。</div>
+
+        <div class="thankyou-steps">
+          <h3 data-zh="接下来的步骤：" data-en="Next steps:">接下来的步骤：</h3>
+          <div class="thankyou-step">
+            <div class="step-badge">1</div>
+            <div data-zh="我们的志愿者将在一周内通过电话或电子邮件与您联系，告知后续安排。请留意来电和邮件。" data-en="Our volunteers will contact you within one week by phone or email regarding next steps. Please watch for our calls and emails.">我们的志愿者将在一周内通过电话或电子邮件与您联系，告知后续安排。请留意来电和邮件。</div>
+          </div>
+          <div class="thankyou-step">
+            <div class="step-badge">2</div>
+            <div data-zh="请提前准备好所需文件（W-2、1099、身份证、社会安全卡等）。" data-en="Please prepare your documents in advance (W-2, 1099, photo ID, Social Security card, etc.).">请提前准备好所需文件（W-2、1099、身份证、社会安全卡等）。</div>
+          </div>
+          <div class="thankyou-step">
+            <div class="step-badge">3</div>
+            <div data-zh="确认邮件中会包含文件上传链接，您也可以选择亲自来我们的服务站提交文件。" data-en="The confirmation email includes a document upload link. You may also drop off documents at our service site.">确认邮件中会包含文件上传链接，您也可以选择亲自来我们的服务站提交文件。</div>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <strong data-zh="如有疑问请联系我们：" data-en="If you have questions, contact us:">如有疑问请联系我们：</strong>
+          📞 (215) 922-6156<br>
+          ✉️ vita@chinatown-pcdc.org<br>
+          📍 301 N 9th St, Philadelphia, PA
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script src="script.js"></script>
+</body>
 </html>
