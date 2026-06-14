@@ -49,7 +49,7 @@
         <!-- Q1: Residency -->
         <div class="field full" style="margin-bottom:16px;">
           <div class="field-label">
-            <span data-zh="您2025年有超过半年的时间住在美国吗？" data-en="Did you live in the United States for more than half of 2025?">您2025年有超过半年的时间住在美国吗？</span>
+            <span data-zh="您2026年有超过半年的时间住在美国吗？" data-en="Did you live in the United States for more than half of 2026?">您2026年有超过半年的时间住在美国吗？</span>
             <span class="req">*</span>
             <span class="sub" data-zh="如是的话，请选择「居民」" data-en="If yes, please select 'Resident'">如是的话，请选择「居民」</span>
           </div>
@@ -57,20 +57,19 @@
             <div class="radio-card" data-val="resident" onclick="selectRadio('q-residency','resident',false)">
               <div class="radio-indicator"></div>
               <div class="radio-text">
-                <strong data-zh="居民 Resident" data-en="Resident 居民">居民 Resident</strong>
+                <strong data-zh="居民" data-en="Resident">居民</strong>
               </div>
             </div>
             <div class="radio-card danger-card" data-val="nonresident" onclick="selectRadio('q-residency','nonresident',true,'我们目前不提供非居民报税服务。\nWe currently do not provide tax services for non-residents.')">
               <div class="radio-indicator"></div>
               <div class="radio-text">
-                <strong data-zh="非居民 Nonresident" data-en="Nonresident 非居民">非居民 Nonresident</strong>
+                <strong data-zh="非居民" data-en="Nonresident">非居民</strong>
               </div>
-              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
             </div>
             <div class="radio-card" data-val="unsure" onclick="selectRadio('q-residency','unsure',false)">
               <div class="radio-indicator"></div>
               <div class="radio-text">
-                <strong data-zh="需要协助判断 I need assistance to determine this" data-en="I need assistance to determine this 需要协助判断">需要协助判断 I need assistance to determine this</strong>
+                <strong data-zh="需要协助判断" data-en="I need assistance to determine this.">需要协助判断</strong>
               </div>
             </div>
           </div>
@@ -86,7 +85,6 @@
             <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-live-outside','yes',true,'我们目前只服务 PA、NJ、DE 的居民。\nWe currently only serve residents of PA, NJ, and DE.')">
               <div class="radio-indicator"></div>
               <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
             </div>
             <div class="radio-card" data-val="no" onclick="selectRadio('q-live-outside','no',false)">
               <div class="radio-indicator"></div>
@@ -106,7 +104,6 @@
             <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-income-outside','yes',true,'我们目前不处理其他州的州税申报。\nWe currently do not handle tax returns for other states.')">
               <div class="radio-indicator"></div>
               <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
             </div>
             <div class="radio-card" data-val="no" onclick="selectRadio('q-income-outside','no',false)">
               <div class="radio-indicator"></div>
@@ -118,7 +115,7 @@
         <!-- Q4: Business income -->
         <div class="field full" style="margin-bottom:16px;">
           <div class="field-label">
-            <span data-zh="您2025年有做生意/自营收入吗？" data-en="Do you have business/self-employment income in 2025?">您2025年有做生意/自营收入吗？</span>
+            <span data-zh="您2026年有做生意/自营收入吗？" data-en="Do you have business/self-employment income in 2026?">您2026年有做生意/自营收入吗？</span>
             <span class="req">*</span>
             <span class="sub" data-zh="不包括 Uber/Lyft、餐馆员工等" data-en="Excludes Uber/Lyft drivers, restaurant employees, etc.">不包括 Uber/Lyft、餐馆员工等</span>
           </div>
@@ -126,7 +123,6 @@
             <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-business','yes',true,'商业/自营收入超出我们的服务范围。\nBusiness/self-employment income is outside our service scope.')">
               <div class="radio-indicator"></div>
               <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
             </div>
             <div class="radio-card" data-val="no" onclick="selectRadio('q-business','no',false)">
               <div class="radio-indicator"></div>
@@ -138,14 +134,13 @@
         <!-- Q5: Rental income -->
         <div class="field full" style="margin-bottom:16px;">
           <div class="field-label">
-            <span data-zh="您2025年有租金收入吗？" data-en="Do you have rental income in 2025?">您2025年有租金收入吗？</span>
+            <span data-zh="您2026年有租金收入吗？" data-en="Do you have rental income in 2026?">您2026年有租金收入吗？</span>
             <span class="req">*</span>
           </div>
           <div class="radio-cards" id="q-rental">
             <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-rental','yes',true,'租金收入超出我们的服务范围。\nRental income is outside our service scope.')">
               <div class="radio-indicator"></div>
               <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
             </div>
             <div class="radio-card" data-val="no" onclick="selectRadio('q-rental','no',false)">
               <div class="radio-indicator"></div>
@@ -157,14 +152,13 @@
         <!-- Q6: Crypto -->
         <div class="field full" style="margin-bottom:16px;">
           <div class="field-label">
-            <span data-zh="您2025年有加密货币交易吗？（买或卖）" data-en="Do you have cryptocurrency transactions in 2025? (buying or selling)">您2025年有加密货币交易吗？（买或卖）</span>
+            <span data-zh="您2026年有卖出加密货币吗？" data-en="Do you have cryptocurrency transactions in 2026? (buying or selling)">您2026年有加密货币交易吗？（买或卖）</span>
             <span class="req">*</span>
           </div>
           <div class="radio-cards" id="q-crypto">
             <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-crypto','yes',true,'加密货币交易超出我们的服务范围。\nCryptocurrency transactions are outside our service scope.')">
               <div class="radio-indicator"></div>
               <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
             </div>
             <div class="radio-card" data-val="no" onclick="selectRadio('q-crypto','no',false)">
               <div class="radio-indicator"></div>
@@ -176,14 +170,13 @@
         <!-- Q7: Stocks -->
         <div class="field full" style="margin-bottom:16px;">
           <div class="field-label">
-            <span data-zh="您2025年有超过10次股票交易吗？" data-en="Do you have more than 10 stock transactions in 2025?">您2025年有超过10次股票交易吗？</span>
+            <span data-zh="您2026年有卖出超过10次股票吗？" data-en="Do you have more than 10 stock transactions in 2026?">您2026年有超过10次股票交易吗？</span>
             <span class="req">*</span>
           </div>
           <div class="radio-cards" id="q-stocks">
             <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-stocks','yes',true,'超过10次股票交易超出我们的服务范围。\nMore than 10 stock transactions is outside our service scope.')">
               <div class="radio-indicator"></div>
               <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
             </div>
             <div class="radio-card" data-val="no" onclick="selectRadio('q-stocks','no',false)">
               <div class="radio-indicator"></div>
@@ -195,14 +188,13 @@
         <!-- Q8: Income limit -->
         <div class="field full" style="margin-bottom:16px;">
           <div class="field-label">
-            <span data-zh="您2025年的总家庭收入超过 $69,000 吗？" data-en="Does your total household income exceed $69,000 in 2025?">您2025年的总家庭收入超过 $69,000 吗？</span>
+            <span data-zh="您2026年的总家庭收入超过 $69,000 吗？" data-en="Does your total household income exceed $69,000 in 2026?">您2026年的总家庭收入超过 $69,000 吗？</span>
             <span class="req">*</span>
           </div>
           <div class="radio-cards" id="q-income">
             <div class="radio-card danger-card" data-val="yes" onclick="selectRadio('q-income','yes',true,'您的家庭收入超过 VITA 服务上限 $69,000。\nYour household income exceeds the VITA service limit of $69,000.')">
               <div class="radio-indicator"></div>
               <div class="radio-text"><strong data-zh="是 Yes" data-en="Yes 是">是 Yes</strong></div>
-              <div class="radio-tag red" data-zh="不符合资格" data-en="Ineligible">不符合资格</div>
             </div>
             <div class="radio-card" data-val="no" onclick="selectRadio('q-income','no',false)">
               <div class="radio-indicator"></div>
@@ -590,7 +582,7 @@
         <div class="field full" style="margin-bottom:20px;">
           <div class="field-label" data-zh="您打算报哪几年的税？（可多选）" data-en="Which tax year(s) do you want to file? (select all that apply)">您打算报哪几年的税？（可多选）<span class="req">*</span></div>
           <div class="tag-group" id="q-tax-years">
-            <button class="tag-btn" data-val="2025" onclick="toggleTag('q-tax-years',this)">2025</button>
+            <button class="tag-btn" data-val="2026" onclick="toggleTag('q-tax-years',this)">2026</button>
             <button class="tag-btn" data-val="2024" onclick="toggleTag('q-tax-years',this)">2024</button>
             <button class="tag-btn" data-val="2023" onclick="toggleTag('q-tax-years',this)">2023</button>
             <button class="tag-btn" data-val="2022" onclick="toggleTag('q-tax-years',this)">2022</button>

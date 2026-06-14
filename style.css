@@ -264,7 +264,6 @@
     margin-top: 2px;
     align-self: center;
   }
-  .radio-tag.red { background: #fed7d7; color: #c53030; }
 
   .check-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
   @media (max-width: 560px) { .check-cards { grid-template-columns: 1fr; } }
